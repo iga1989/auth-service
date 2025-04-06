@@ -10,7 +10,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-    show-sql: false
+      show-sql: true
+      format_sql: true
     hibernate:
       ddl-auto: none
 server:
@@ -31,12 +32,16 @@ management:
     web:
       exposure:
         include: "*"
+    access:
+      default:
   endpoint:
     health:
       show-details: always
   tracing:
     sampling:
       probability: 1.0
+  auditevents:
+    enabled: true
 app:
   logs:
     fileLocation: C:\Users\isset\SpringBootProjects-Java\microservices-1\microservices-logs # Path to your local machine directory

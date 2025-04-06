@@ -27,4 +27,24 @@ CREATE TABLE IF NOT EXISTS USER_ROLES (
 );
 
 
+-- Main table for CustomAuditEvent
+CREATE TABLE IF NOT EXISTS custom_audit_event (
+                                    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                    principal VARCHAR(255),
+                                    timestamp TIMESTAMP,
+                                    type VARCHAR(100),
+                                    data JSON
+);
+
+-- Table for the data Map<String, Object> as a key-value pair table
+# CREATE TABLE IF NOT EXISTS custom_audit_event_data (
+#                                          event_id BIGINT NOT NULL,
+#                                          data_key VARCHAR(255) NOT NULL,
+#                                          data_value TEXT,
+#                                          PRIMARY KEY (event_id, data_key),
+#                                          FOREIGN KEY (event_id) REFERENCES custom_audit_event(id) ON DELETE CASCADE
+# );
+
+
+
 
